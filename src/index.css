@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  display: block;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
+/* Flexbox Container */
+.flexbox-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  min-width: 360px;
+  text-shadow: 0 1px 1px #000000;
+}
+
+/* Container Items */
+.btn {
+  width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 360px) {
+  .container {
+    width: 360px;
+  }
+}
+
+@media (min-width: 414px) {
+  .container {
+    width: 414px;
+  }
+}
+
+/* Bouncing Loader */
+.bouncing-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  margin: 40px auto;
+}
+
+.bouncing-loader > div {
+  width: 16px;
+  height: 16px;
+  margin: 3px 6px;
+  border-radius: 50%;
+  background-color: #a3a1a1;
+  opacity: 1;
+  animation: bouncing-loader 0.6s infinite alternate;
+}
+
+@keyframes bouncing-loader {
+  to {
+    opacity: 0.1;
+    transform: translateY(-16px);
+  }
+}
+
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing-loader > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Current Weather Section styling */
+.current-weather {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.current-weather h2 {
+  font-weight: lighter;
+  font-size: 2rem;
+}
+
+.current-weather p {
+  font-size: 1.15rem;
+}
+
+.current-weather h1 {
+  font-size: 6.5rem;
+  font-weight: lighter;
+  margin-left: 2rem;
+}
+
+.min-max {
+  display: inline-block;
+  padding: 0 0.4rem;
+}
+
+/* Draggable weather div */
+.draggable {
+  height: 57.5vh;
+  width: 100%;
+  margin-top: 7vh;
+}
+
+/* Carousel */
+.carousel-element {
+  display: inline-block;
+  margin-right: 0.85rem;
+}
+
+.carousel-element img {
+  pointer-events: none;
+}
+
+.inner-carousel {
+  display: flex;
+}
+
+.carousel {
+  cursor: grab;
+  overflow: hidden;
+  border-top: #cecece 0.05rem solid;
+  border-bottom: #cecece 0.05rem solid;
+  padding: 0.35rem 0;
+}
+
+/* Scrollable Weather Div */
+.weather-scrollable {
+  height: 301px;
+  overflow-y: scroll;
+  padding: 1rem 0;
+}
+
+.weather-desc {
+  border-bottom: #cecece 0.05rem solid;
+  padding-bottom: 1rem;
+}
+
+/* Applying similar styles to following divs */
+.weather-stats {
+  text-align: left;
+  border-bottom: #cecece 0.05rem solid;
+}
+
+.weather-stats p {
+  text-shadow: none;
+  color: #cecece;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.weather-stats div {
+  width: 95%;
+  padding: 0.5rem 0;
+  margin: 0 auto;
+  border-bottom: #cecece 0.05rem solid;
+}
+
+/* No border for last div */
+.weather-stats div:last-child {
+  border-bottom: none;
+}
+
+/* Weather units selector */
+.weather-unit {
+  display: inline-block;
+  padding: 0 0.75rem;
+  color: #cecece;
+  cursor: pointer;
+}
+
+/* Active weather unit color */
+.active {
+  color: white;
+  font-weight: bold;
+}
+
+/* Chevrons */
+.chevrons {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+/* Hidden class */
+.hidden {
+  visibility: hidden;
+}
+
