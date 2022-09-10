@@ -5,6 +5,7 @@ import {WeatherProvider} from "./utils/weatherContext";
 import WeatherMain from "./components/WeatherMain";
 import BouncingDotsLoader from "./components/BouncingDotsLoader";
 import WeatherDraggable from "./components/WeatherDraggable";
+import {isApple} from "./utils/SystemUtils";
 
 class App extends Component {
     constructor(props) {
@@ -85,23 +86,28 @@ class App extends Component {
     componentDidMount() {
         // Check if geolocation supported
         if ("geolocation" in navigator) {
-            // Perform location permissions query
-            navigator.permissions.query({name: "geolocation"})
-                .then(result => {
-                    switch (result.state) {
-                        case "granted":
-                            navigator.geolocation.getCurrentPosition(this.success);
-                            break;
-                        case "prompt":
-                            navigator.geolocation.getCurrentPosition(this.success, this.errors);
-                            break;
-                        case "denied":
-                            console.warn("Location access denied");
-                            break;
-                        default:
-                            return;
-                    }
-                });
+            // Permissions query only done on non-Apple devices
+            if (isApple) {
+                navigator.geolocation.getCurrentPosition(this.success, this.errors);
+            } else {
+                // Perform location permissions query
+                navigator.permissions.query({name: "geolocation"})
+                    .then(result => {
+                        switch (result.state) {
+                            case "granted":
+                                navigator.geolocation.getCurrentPosition(this.success);
+                                break;
+                            case "prompt":
+                                navigator.geolocation.getCurrentPosition(this.success, this.errors);
+                                break;
+                            case "denied":
+                                console.warn("Location access denied");
+                                break;
+                            default:
+                                return;
+                        }
+                    });
+            }
         } else {
             this.setState({
                 ...this.state,
