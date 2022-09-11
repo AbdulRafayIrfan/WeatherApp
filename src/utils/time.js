@@ -1,7 +1,8 @@
 /**
  * @param time
  * @returns {string}
- * Function for converting string time stamp into 12-hour time format
+ * Function for converting UTC string time stamp into 12-hour time format
+ * And converting to user's timezone
  * Eg: '6:53 AM'
  */
 function timeConvert(time) {
@@ -9,7 +10,7 @@ function timeConvert(time) {
     // Date variable to convert value
     const timeStr12hr = new Date('1975-01-01T' + timeStr + 'Z')
         .toLocaleTimeString('en-US',
-            {timeZone: 'UTC', hour12: true, hour: 'numeric'}
+            {hour12: true, hour: 'numeric'}
         );
     return timeStr12hr;
 }
@@ -18,8 +19,8 @@ function timeConvert(time) {
  *
  * @param UNIX_time
  * @returns {string}
- * Function for converting UNIX time stamp into 12-hour format time with
- * hours and minutes, eg: '6:53 AM'
+ * Function for converting UNIX (UTC) time stamp into 12-hour format time with
+ * hours and minutes, eg: '6:53 AM', converted to user's timezone
  */
 function unixConvertMins(UNIX_time) {
     let time12hr = new Date(UNIX_time * 1000)

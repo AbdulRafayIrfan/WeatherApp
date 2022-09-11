@@ -45,7 +45,7 @@ class WeatherScrollable extends Component {
                     </div>
                     <div>
                         <p>Chance of rain</p>
-                        <h3>{forecast.list[0].pop}%</h3>
+                        <h3>{forecast.list[0].pop * 100}%</h3>
                     </div>
                     <div>
                         <p>Humidity</p>

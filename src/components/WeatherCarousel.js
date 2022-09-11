@@ -7,8 +7,8 @@ import WeatherCarouselElement from "./WeatherCarouselElement";
 class WeatherCarousel extends Component {
     static contextType = WeatherContext;
 
-    fullDayForecast = this.context.response.forecast.list.slice(1, 10);
-    fullDayForecastF = this.context.response.forecastF.list.slice(1, 10);
+    fullDayForecast = this.context.response.forecast.list.slice(0, 9);
+    fullDayForecastF = this.context.response.forecastF.list.slice(0, 9);
 
     render() {
         const { current: currentC, currentF } = this.context.response;
