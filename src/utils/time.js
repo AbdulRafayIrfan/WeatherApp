@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * @param time
  * @returns {string}
@@ -6,13 +7,14 @@
  * Eg: '6:53 AM'
  */
 function timeConvert(time) {
-    const timeStr = time.slice(11)
-    // Date variable to convert value
-    const timeStr12hr = new Date('1975-01-01T' + timeStr + 'Z')
-        .toLocaleTimeString('en-US',
-            {hour12: true, hour: 'numeric'}
-        );
-    return timeStr12hr;
+  const timeStr = time.slice(11);
+  // Date variable to convert value
+  const timeStr12hr = new Date(`1975-01-01T${timeStr}Z`)
+    .toLocaleTimeString(
+      'en-US',
+      { hour12: true, hour: 'numeric' },
+    );
+  return timeStr12hr;
 }
 
 /**
@@ -23,11 +25,12 @@ function timeConvert(time) {
  * hours and minutes, eg: '6:53 AM', converted to user's timezone
  */
 function unixConvertMins(UNIX_time) {
-    let time12hr = new Date(UNIX_time * 1000)
-        .toLocaleTimeString('en-US',
-            {hour12: true, hour: 'numeric', minute: 'numeric'}
-        );
-    return time12hr;
+  const time12hr = new Date(UNIX_time * 1000)
+    .toLocaleTimeString(
+      'en-US',
+      { hour12: true, hour: 'numeric', minute: 'numeric' },
+    );
+  return time12hr;
 }
 
-export { timeConvert, unixConvertMins }
+export { timeConvert, unixConvertMins };
