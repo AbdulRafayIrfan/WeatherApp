@@ -12,9 +12,6 @@ package-lock.json
 # production
 /build
 
-# backend file
-server.js
-
 # misc
 .env
 .DS_Store
