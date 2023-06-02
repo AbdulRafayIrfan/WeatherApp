@@ -21,4 +21,4 @@ function getPartOfDayStyle(current) {
     }
 }
 
-export { getCurrent, getForecast, getPartOfDayStyle };
+export {getCurrent, getForecast, getPartOfDayStyle};

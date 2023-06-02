@@ -3,6 +3,7 @@ import {timeConvert} from "../utils/time";
 import {motion} from "framer-motion";
 
 class WeatherCarouselElement extends Component {
+
     render() {
         const { time, icon, temp } = this.props;
         return (

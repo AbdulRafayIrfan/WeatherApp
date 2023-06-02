@@ -20,7 +20,7 @@ class App extends Component {
                 forecastF: '',
                 currentF: '',
             },
-            bgColor : {
+            bgColor: {
                 background: "white",
             }
         });
@@ -125,15 +125,17 @@ class App extends Component {
     }
 
     render() {
-        const { response, locationAccess, permission, bgColor, units } = this.state;
+        const {response, locationAccess, permission, bgColor, units} = this.state;
         if (!locationAccess) {
-            return <div className="flexbox-container"><Error errMsg="This application is not compatible with your device"/></div>
+            return <div className="flexbox-container"><Error
+                errMsg="This application is not compatible with your device"/></div>
         } else if (!permission) {
-            return <div className="flexbox-container"><Error errMsg="Please allow location access to use the application"/></div>
+            return <div className="flexbox-container"><Error
+                errMsg="Please allow location access to use the application"/></div>
         } else if (locationAccess && permission) {
             if (response.forecast === '') {
                 // Show loader here
-                return <BouncingDotsLoader />
+                return <BouncingDotsLoader/>
             } else {
                 return (
                     <div style={bgColor} className="flexbox-container">
