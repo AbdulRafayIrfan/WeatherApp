@@ -8,7 +8,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // useRef
 
 root.render(
-    <App />
+  // eslint-disable-next-line react/jsx-filename-extension
+  <App />,
 );
 
 // If you want to start measuring performance in your app, pass a function
