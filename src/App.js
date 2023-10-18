@@ -15,14 +15,12 @@ class App extends Component {
       locationAccess: true,
       permission: false,
       units: 'metric',
+      bgColor: '',
       response: {
         forecast: '',
         current: '',
         forecastF: '',
         currentF: '',
-      },
-      bgColor: {
-        background: 'white',
       },
     });
   }
@@ -42,15 +40,13 @@ class App extends Component {
         forecastF: '',
         currentF: '',
       };
-      const bgStyle = {
-        background: '',
-      };
+      let bgStyle = '';
       getCurrent(coords, 'metric')
         .then((res) => {
           // Set to response variable
           resp.current = res.data;
           // Get the part of day style to appropriately set background of App
-          bgStyle.background = getPartOfDayStyle(res.data);
+          bgStyle = getPartOfDayStyle(res.data);
           // Call getForecast which returns another promise
           return getForecast(coords, 'metric');
         })
@@ -126,8 +122,12 @@ class App extends Component {
 
   render() {
     const {
-      response, locationAccess, permission, bgColor, units,
+      response, locationAccess, permission, units, bgColor
     } = this.state;
+
+    // Change background color of body
+    document.body.style.background = this.state.bgColor;
+
     if (!locationAccess) {
       return (
         <div className="flexbox-container">
@@ -150,7 +150,7 @@ class App extends Component {
         return <BouncingDotsLoader />;
       }
       return (
-        <div style={bgColor} className="flexbox-container">
+        <div className="flexbox-container">
           <div className="container">
             <WeatherProvider value={{ response, units, toggleUnits: this.toggleUnits }}>
               <WeatherMain />
