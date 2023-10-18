@@ -125,7 +125,7 @@ class App extends Component {
       response, locationAccess, permission, units, bgColor
     } = this.state;
 
-    // Change background color of body
+    // Change background color of body dependant on time of day
     document.body.style.background = this.state.bgColor;
 
     if (!locationAccess) {

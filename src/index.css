@@ -35,7 +35,7 @@ code {
 /* Container */
 .container {
   text-align: center;
-  min-width: 360px;
+  min-width: 320px;
   text-shadow: 0 1px 1px #000000;
 }
 
@@ -45,9 +45,9 @@ code {
 }
 
 /* Media Queries */
-@media (max-width: 360px) {
+@media (max-width: 413px) {
   .container {
-    width: 360px;
+    width: 320px;
   }
 }
 
@@ -184,6 +184,10 @@ code {
 }
 
 /* Weather units selector */
+.unit-selector {
+  padding: 1em 0;
+}
+
 .weather-unit {
   display: inline-block;
   padding: 0 0.75rem;
